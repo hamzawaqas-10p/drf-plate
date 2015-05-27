@@ -1,1 +1,2 @@
-mongod --dbpath /code/mbo/data/db &
+#!/bin/sh
+mongod &

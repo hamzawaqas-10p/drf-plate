@@ -19,8 +19,7 @@ RUN pip install -r requirements.txt
 ADD ./data data
 ADD conf/ conf
 ADD bin/ bin
-RUN mkdir -p /code/mbo/data/db
-CMD mongod &
-#ENTRYPOINT ["nohup mongod"]
+VOLUME ["/data/db"]
+RUN apt-get install nano -y
 EXPOSE 8001
 EXPOSE 27017
