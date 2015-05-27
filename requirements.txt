@@ -1,7 +1,6 @@
 Django
 djangorestframework
 markdown
-djang-filter
 gunicorn
 fabric
 greenlet

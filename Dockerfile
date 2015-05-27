@@ -11,13 +11,13 @@ RUN apt-get install nginx -y
 RUN apt-get install python-pip python-dev build-essential -y
 RUN pip install --upgrade pip
 RUN pip install --upgrade virtualenv
-RUN virtualenv env
-CMD ["source", "./env/bin/activate"]
 RUN git clone https://github.com/hamzawaqas-10p/drf-plate.git mbo
 WORKDIR /code/mbo
-RUN pip install -r requirements.txt
-RUN service nginx start
+RUN virtualenv env
 CMD ["source", "./env/bin/activate"]
-#RUN ./env/bin/gunicorn -c gunicorn_config.py mbo.wsgi
-RUN gunicorn mbo.wsgi:application --bind 0.0.0.0:8001
-EXPOSE 80
+RUN pip install -r requirements.txt
+CMD service nginx start	 
+RUN apt-get install nano -y
+CMD ["source", "./env/bin/activate"]
+CMD ["gunicorn", "mbo.wsgi:application", "--bind 0.0.0.0:8001"]
+EXPOSE 8001
