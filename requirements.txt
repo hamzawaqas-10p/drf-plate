@@ -2,6 +2,3 @@ Django
 djangorestframework
 markdown
 gunicorn
-fabric
-greenlet
-eventlet
